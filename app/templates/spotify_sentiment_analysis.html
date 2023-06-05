@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Spotify Sentiment Analysis</title>
+</head>
+<body>
+  <h1>Spotify Sentiment Analysis</h1>
+  
+  <h2>Playlist Information</h2>
+  <ul>
+    {% for track in playlist.iterrows() %}
+      <li>{{ track[1]['Track_Name'] }} by {{ track[1]['Artist'] }}</li>
+    {% endfor %}
+  </ul>
+  
+  <h2>Sentiment Analysis</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Track</th>
+        <th>Sentiment</th>
+        <th>Sentiment Score</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for track in playlist.iterrows() %}
+        <tr>
+          <td>{{ track[1]['Track_Name'] }} by {{ track[1]['Artist'] }}</td>
+          <td>{{ track[1]['Sentiment'] }}</td>
+          <td>{{ track[1]['Sentiment_Score'] }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>
